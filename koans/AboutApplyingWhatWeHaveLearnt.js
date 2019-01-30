@@ -40,8 +40,16 @@ describe("About Applying What We Have Learnt", function() {
       var productsICanEat = [];
 
       /* solve using filter() & all() / any() */
+      productsICanEat = _.filter(products, (item) => {
+        // Check a mushrooms in the ingredients.
+        const hasMushrooms = _.any(item.ingredients, (ingredient) => {
+          return ingredient === "mushrooms";
+        });
+        // If containsNuts and hasMushrooms are false, push to the productsICanEat.
+        return !item.containsNuts && !hasMushrooms === true;
+      });
 
-      expect(productsICanEat.length).toBe(FILL_ME_IN);
+      expect(productsICanEat.length).toBe(1);
   });
 
   /*********************************************************************************/
